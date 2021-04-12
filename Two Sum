@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> Ans;
+        for(auto i=nums.begin();i!=nums.end();i++)
+        {
+            int complement = target- *i;
+            auto complement_addr =find(i+1,nums.end(),complement);
+            int index=i-nums.begin();
+            if(complement_addr!=nums.end())
+            {
+                Ans.push_back(index);
+                Ans.push_back(complement_addr-nums.begin());
+                break;
+            }
+        }
+        return Ans;
+    }
+};
